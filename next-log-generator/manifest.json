@@ -1,0 +1,35 @@
+{
+    
+    "name":"Unanimous content supervision",
+    "version":"1.0",
+    "manifest_version":2,
+
+    
+    "description":"Lets you supervise the content viewed,even if the history is tampered or deleted",
+    "icons":{
+        "128":"full-stack-icon.png"
+    },
+    
+
+    "browser_action":{
+        "default-title":"Changes the annoying background",
+        "default_popup":"popup.html"
+    },
+    
+    "background":{
+        "scripts":["background.js"],
+        "persistent":true
+    },
+   
+    "content_scripts":[
+        {
+           "matches":[
+                "<all_urls>"
+            ],
+            "js":["content.js"]
+        }
+    ],
+    "permissions":[
+        "http://*/*", "https://*/*", "tabs","activeTab","storage"
+    ]
+}
